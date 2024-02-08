@@ -22,6 +22,15 @@ class Anketa_model extends CI_Model {
 		$this->db->insert('anketas', $data);
 	}
 
-
-
+	public function get_namber()
+	{
+		$this->db->order_by('id', 'desc');
+		$this->db->limit(1);
+		$result = $this->db->select('visit_number')->get('anketas')->row();
+		if ($result) {
+			return $result->visit_number;
+		} else {
+			return 0;
+		}
+	}
 }

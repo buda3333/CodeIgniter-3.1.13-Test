@@ -29,7 +29,9 @@ class Anketa extends CI_Controller {
 		redirect(base_url());
 	}
 	private function getVisitNumber() {
-		// Здесь вы можете использовать механизм, чтобы определить номер визита
-		return 1;
+		$current_number = $this->anketa->get_namber();
+		return $current_number + 1;
 	}
+
+
 }

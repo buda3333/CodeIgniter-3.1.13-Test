@@ -15,14 +15,11 @@ class Admin_model extends CI_Model {
 		}
 		return $query;
 	}
-	public function update_status()
+	public function update_status($result_id,$new_status)
 	{
-		$result_id = $this->input->post('result_id');
-		$new_status = $this->input->post('new_status');
 		$data = array(
 			'status' => $new_status
 		);
-
 		$this->db->where('id', $result_id);
 		if ($this->db->update('anketas', $data)) {
 			return true;

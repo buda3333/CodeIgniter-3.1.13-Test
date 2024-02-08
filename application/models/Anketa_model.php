@@ -17,18 +17,11 @@ class Anketa_model extends CI_Model {
 
 	}
 
-	public function add_anketa() {
-		$data= array(
-			'ip_address' => $_SERVER['REMOTE_ADDR'],
-			'visit_number' => $this->getVisitNumber(),
-			'answers' => json_encode($this->input->post('answers')
-		));
+	public function add_anketa($data) {
+
 		$this->db->insert('anketas', $data);
 	}
 
-	private function getVisitNumber() {
-		// Здесь вы можете использовать механизм, чтобы определить номер визита
-		return 1;
-	}
+
 
 }

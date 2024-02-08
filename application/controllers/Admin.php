@@ -18,8 +18,10 @@ class Admin extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 	public function update() {
-		$data = $this->admin->update_status();
-		echo json_encode($data);
+		$result_id = $this->input->post('result_id');
+		$new_status = $this->input->post('new_status');
+		$data = $this->admin->update_status($result_id,$new_status);
+		echo json_encode(array('success' => $data));
 	}
 
 }
